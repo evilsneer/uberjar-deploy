@@ -7,9 +7,10 @@
 
 (defn uberjar-deploy
   "Deploys an existing uberjar with lein deploy"
-  [project & args]
+  [project repository & args]
   (main/info "Preparing to deploy uberjar")
-  (let [repository (if (pom/snapshot? project) "snapshots" "releases")
+  (let [
+        ;repository (if (pom/snapshot? project) "snapshots" "releases")
         group (:group project)
         name (:name project)
         identifier (format "%s/%s" group name)
