@@ -22,7 +22,18 @@ Put `[emptyone/uberjar-deploy "1.0.0"]` into the `:plugins` vector of your
 You'll need something like this in your `project.clj`:
 
     :aliases {"jar"    "uberjar"
-              "deploy" "uberjar-deploy"}
+              "deploy" "uberjar-deploy"}  ; only maybe
+
+    :release-tasks ^:replace [["vcs" "assert-committed"]
+                              ["change" "version" "leiningen.release/bump-version" "release"]
+                              ["vcs" "commit"]
+                              ["vcs" "tag" "--no-sign"]
+                              ["clean"]
+                              ["uberjar"]
+                              ["uberjar-deploy" "<repo name>"]
+                              ["change" "version" "leiningen.release/bump-version"]
+                              ["vcs" "commit"]
+                              ["vcs" "push"]]
 
 Then you can just run a release as normal:
 
