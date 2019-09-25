@@ -39,6 +39,10 @@ Then you can just run a release as normal:
 
     $ lein release
 
+Also could be used as separated commands:
+
+    $ lein uberjar && lein uberjar-deploy <repo name>
+
 ## License
 
 Copyright © 2019 Vladislav Shishkov.
