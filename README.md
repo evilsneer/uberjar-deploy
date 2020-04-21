@@ -1,7 +1,7 @@
 # uberjar-deploy
 
 A Leiningen plugin to deploy uberjars to any of your repositories, intended to be used in a `lein release` workflow.  
-Delegates to `lein deploy` under the hood. 
+Delegates to `lein deploy` under the hood. Fix forked project for working with custom repos. See `uberjar-deploy` command.
 
 ## Rationale
 
